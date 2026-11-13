@@ -24,6 +24,24 @@ It has two parts:
 > [When it does not protect you](#when-it-does-not-protect-you) before you rely on it, and
 > [test it yourself](#check-that-it-works-on-your-pc) after turning it on.
 
+## Contents
+
+- [Screenshots](#screenshots)
+- [How it works](#how-it-works)
+- [Requirements](#requirements)
+- [When it does not protect you](#when-it-does-not-protect-you)
+- [Download](#download)
+- [Install](#install)
+- [Using the app](#using-the-app)
+- [Settings](#settings)
+- [Check that it works on your PC](#check-that-it-works-on-your-pc)
+- [What it changes on your PC](#what-it-changes-on-your-pc)
+- [Remove it](#remove-it)
+- [Build from source](#build-from-source)
+- [Repository layout](#repository-layout)
+- [Disclaimer](#disclaimer)
+- [License](#license)
+
 ## Screenshots
 
 **Status** – whether you are protected, which adapters are blocked and which servers are allowed.
