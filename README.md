@@ -1,5 +1,10 @@
 # VPN Kill Switch for Windows
 
+[![CI](https://github.com/DespotMagic/vpn-kill-switch-windows/actions/workflows/ci.yml/badge.svg)](https://github.com/DespotMagic/vpn-kill-switch-windows/actions/workflows/ci.yml)
+[![Latest release](https://img.shields.io/github/v/release/DespotMagic/vpn-kill-switch-windows?sort=semver)](https://github.com/DespotMagic/vpn-kill-switch-windows/releases/latest)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Windows 10 and 11](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4)](#install)
+
 A kill switch for VPN clients that don't have a reliable one of their own. While it is on,
 programs can reach the internet **only through the VPN tunnel**. If the VPN drops, traffic
 stops until it reconnects; nothing falls back to your normal connection.
