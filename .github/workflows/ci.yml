@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Build the app
+        run: dotnet build src\VpnKillSwitch\VpnKillSwitch.csproj -c Release
+
+      # The script targets Windows PowerShell 5.1, so check and test it there (shell: powershell).
+      - name: Check the script for syntax errors
+        shell: powershell
+        run: |
+          $errors = $null
+          [void][System.Management.Automation.Language.Parser]::ParseFile(
+              (Resolve-Path 'script\vpn-killswitch.ps1'), [ref]$null, [ref]$errors)
+          $errors | ForEach-Object { Write-Host "::error::$_" }
+          if ($errors.Count -gt 0) { exit 1 }
+
+      - name: Test the script logic
+        shell: powershell
+        run: |
+          & .\tests\Test-ScriptLogic.ps1
+          exit $LASTEXITCODE
