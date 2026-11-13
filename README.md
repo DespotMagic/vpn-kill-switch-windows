@@ -3,7 +3,7 @@
 [![CI](https://github.com/DespotMagic/vpn-kill-switch-windows/actions/workflows/ci.yml/badge.svg)](https://github.com/DespotMagic/vpn-kill-switch-windows/actions/workflows/ci.yml)
 [![Latest release](https://img.shields.io/github/v/release/DespotMagic/vpn-kill-switch-windows?sort=semver)](https://github.com/DespotMagic/vpn-kill-switch-windows/releases/latest)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Windows 10 and 11](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4)](#install)
+[![Windows 10 and 11](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4)](#download)
 
 A kill switch for VPN clients that don't have a reliable one of their own. While it is on,
 programs can reach the internet **only through the VPN tunnel**. If the VPN drops, traffic
@@ -149,13 +149,37 @@ Pritunl Client on Windows 11 with Windows Firewall. Other OpenVPN and WireGuard 
 should work the same way but have not been tested. The Windows built-in VPN client
 (IKEv2, L2TP, SSTP) has not been tested.
 
+## Download
+
+Get the latest build from the [Releases page](https://github.com/DespotMagic/vpn-kill-switch-windows/releases/latest).
+Each release has two zip files. Both contain the same app; they differ only in how it is
+packaged:
+
+| File | Size | Needs | Pick it if |
+| --- | --- | --- | --- |
+| [`VpnKillSwitch-standalone.zip`](https://github.com/DespotMagic/vpn-kill-switch-windows/releases/latest/download/VpnKillSwitch-standalone.zip) | about 67 MB | nothing | You are not sure, or just want it to work. **Recommended.** |
+| [`VpnKillSwitch.zip`](https://github.com/DespotMagic/vpn-kill-switch-windows/releases/latest/download/VpnKillSwitch.zip) | about 153 KB | [.NET 10 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/10.0) | You already have the runtime installed and want a small download. |
+
+The "Source code" links on the release page are automatic GitHub archives of the repository,
+not the app. You only need them to build it yourself (see
+[Build from source](#build-from-source)).
+
+**Verify your download (optional).** Each file's SHA-256 checksum is shown next to it on the
+release page. To check it in PowerShell:
+
+```powershell
+Get-FileHash .\VpnKillSwitch-standalone.zip -Algorithm SHA256
+```
+
+The result must match the checksum on the release page. The zip files are not code-signed,
+so Windows SmartScreen will warn the first time you run the app.
+
 ## Install
 
 ### The app
 
-1. Download the latest release and unzip it anywhere (for example `C:\Tools\VpnKillSwitch`).
-   - `VpnKillSwitch.zip` needs the .NET 10 Desktop Runtime.
-   - `VpnKillSwitch-standalone.zip` needs nothing but is larger.
+1. [Download](#download) the latest release and unzip it anywhere (for example
+   `C:\Tools\VpnKillSwitch`).
 2. Run `VpnKillSwitch.exe`.
 
 The download is not code-signed, so Windows SmartScreen will warn the first time. Keep
